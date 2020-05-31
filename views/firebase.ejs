@@ -8,7 +8,6 @@
 </head>
 <style>
 *{
-    /* border: solid 1px; */
     font-family: 微軟正黑體;
     position: relative;
 }
@@ -41,42 +40,21 @@ body{
     overflow: hidden;
     box-shadow: 0px 0px 5px;
 }  
-/* .head:hover {
-  transform: translateY(-5px) translateX(-5px);
-  box-shadow: 10px 10px 30px rgba(50, 50, 50, 0.3);
-} */
 .text{
     text-align: center;
 }
 .ul{
     letter-spacing:1px;
-    /* line-height:1px; */
 }
 ul li{
     list-style-type:none;
-    /* margin-right:100px; */
     border: solid 1px #f24; 
     background-color:white;
     padding:5px;
     border-radius: 5px;
     margin:5px;
-    width:500px; 
-    /* display: table; */
-    /* margin: 0 auto;  */
+    width:500px ;
 }
-/* .circle{
-    width:100px; height:100px;
-    border-radius: 100%;
-    position: absolute;
-} */
-/* .circle1{
-    width:50px; height:50px;
-    right:100px; */
-    /* background-color:#FF2244; */
-    /* border: solid 3px #f24; 
-    right:-25px;
-    top:-25px;
-} */
 .JustDoIt{
     position: absolute;
     font-size:300px;
@@ -115,16 +93,14 @@ input{
     <div class="JustDoIt">Just Do It</div>
     <div class="ToDoList">To Do List</div>
     <div class="head">
-    <!-- <div class="circle circle1"></div> -->
+    <div class="circle circle1"></div>
     <div class="text">
     <input id="txt" type="text"  placeholder="請輸入內容">
-    <input type="button" id="send" value="新增">
+    <input type="button" id="send" value="送出">
     </div>
     <ul id="list" class="ul">
 
     </ul>
-    
-    <!-- <div class="circle circle1"></div> -->
     
     </div>
 </body>
@@ -136,17 +112,15 @@ firebase.initializeApp({
 });
 
 const database = firebase.database();
-//console.log(database);
-//database.ref().set('h1');
 var txt = document.getElementById("txt");
 var send = document.getElementById("send");
 var list = document.getElementById("list");
 
 // todos
 var todos = firebase.database().ref('todos');
-//todos.push({content:'今天要記得刷牙'});
 
-// 按送出按鈕，可以寫入資料庫
+
+// 按送出按鈕，寫入資料庫，不可空白
 send.addEventListener('click',function(e){
     console.log(txt.value);
     if(txt.value===""){
@@ -156,18 +130,17 @@ send.addEventListener('click',function(e){
     } 
 })
 
-//顯示內容出來
+// 顯示內容出來
 todos.on('value',function(snapshot){
     var str = '';
     var data = snapshot.val();
     for(var item in data){
-        //str+='<li>'+data[item].content+'</li>'
-        //str+='<li data-key="'+item+'">'+data[item].content+'</li>'
+        
         str+='<li ><input type="checkbox">'+data[item].content+'<input type="button" id="button" data-key="'+item+'" value="刪除"></li>'
     }
     list.innerHTML = str;
 })
-//刪除邏輯
+// 刪除邏輯
 list.addEventListener('click',function(e){
     if(e.target.nodeName="li"){
         var key = e.target.dataset.key;
