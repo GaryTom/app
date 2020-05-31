@@ -10,17 +10,18 @@
 
 *{
     font-weight: 100;
-  letter-spacing: 2px;
-  color: #555;
-  font-family: 微軟正黑體;
+    letter-spacing: 2px;
+    color: #555;
+    font-family: 微軟正黑體;
 }
 body{
     background-color: #d1d1d1;
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    border-top: solid 20px #f24;
-    border-bottom: solid 20px #f24;
+    border-top: solid 20px yellowgreen;
+    border-bottom: solid 20px yellowgreen;
+    overflow: hidden;
 }
 body,html{
     width: 100%;
@@ -47,7 +48,8 @@ h3{
 }
 .little_eng{
     margin-left: 10px;
-    font-size: 11px;
+    /* font-size: 11px; */
+    font-size: 15px;
 }  
 .namecard{
   background-color: #eee;
@@ -59,7 +61,7 @@ h3{
   box-shadow: 10px 5px 50px rgba(255,255,255,0.4),5px 5px 30px rgba(50,50,50,0.2);
   border: solid 1px rgba(0,0,0,0.05);
   padding: 22px;
-  margin-top: 120px;
+  margin-top: 200px;
   border-radius: 8px;
   transition-duration: 0.5s;
   overflow: hidden;
@@ -69,49 +71,20 @@ h3{
 .namecard:hover{
     transform: translateY(-5px) translateX(-5px);
     box-shadow: 10px 10px 30px rgba(50,50,50,0.3);
-}   
-.namecard:hover .circle1{
-    transform-origin: 50% 50%;
-    transform: scale(1.2);
-}
-.namecard:hover .circle2{
-    transform-origin: 50% 50%;
-    transform: scale(1.3);
-}    
+}      
 .namecard h5{
     color:  #f24;
 }
 .namecard P{
     font-size: 10px;
     line-height: 20px;
-}  
-.circle{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: 200px;
-    background-color: #f24;
-    border-radius: 100%;
-    transition-duration: 1s;
-}  
-  
-.circle2{
-    width: 60px;
-    height: 60px;
-    left: initial;
-    right: -35px;
-    top: -35px;
-    background-color: initial;
-    border: solid 3px #f24;
-    transition-delay: 0.4s;
-}
-  
+}   
 .namecardtext{
     position: absolute;
     left: -5px;
     bottom: 100px;
     color: rgba(0,0,0,0.03);
-    font-size: 300px;
+    font-size: 250px;
 } 
 a,hr{
     text-decoration: none;
@@ -119,17 +92,49 @@ a,hr{
     border-style: none;
     border-top-style: solid;
 } 
+.circle{
+    width: 70px;
+    height: 70px;
+    position: absolute; 
+    right: -30px;
+    top:-30px;
+    background-color:#5599FF;
+    border-radius: 100%;
+    transition-duration: 1s;
+}  
+  
+.circle2{
+    width: 100px;
+    height: 100px;
+    left: initial;
+    right: -35px;
+    top: -35px;
+    background-color: initial;
+    border: solid 3px #5599FF;
+    transition-delay: 0.4s;
+}
+
+.namecard:hover .circle1{
+    transform-origin: 50% 50%;
+    transform: scale(1.2);
+}
+.namecard:hover .circle2{
+    transform-origin: 50% 50%;
+    transform: scale(1.3);
+} 
 </style>
 <body>
-    <div class="namecardtext">NAMECARD</div><a class="namecard">
-        <h2 class="name">Wang Guan
-          <!--span.little_eng (Che-Yu Wu)-->
-        </h2>
-        <h5 class="job">軟體工程師</h5>
-        <hr/>
-        <p class="description">做過了表單方面的設計，表單的卡控用jquery操作，後端用C#，想接觸Node.js應用。</p>
-        <div class="circle circle1"></div>
-        <div class="circle circle2"></div></a>
+    <div class="namecardtext">NAMECARD</div>
+        <div class="namecard">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <h2 class="name">王冠勛
+            <span class="little_eng">(Gary Wang)</span>
+            </h2>
+            <h5 class="job">軟體工程師</h5>
+            <hr/>
+            <p class="description">使用過的工具:HTML、CSS、JavaScript、Python、Firebase、C#、Node.js、Express.js、jQuery、Bootstrap、MS SQL、Git、Herku、React.js。</p>
+        </div>
                           
 </body>
 </html>

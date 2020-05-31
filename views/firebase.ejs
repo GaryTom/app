@@ -30,8 +30,8 @@ body{
     background-color:#F3E96B;
 }
 .head{
-    width:350px;
-    height:300px; 
+    width:600px;
+    height:400px; 
     padding:20px;
     margin-left:auto;
     margin-right:auto;
@@ -41,10 +41,10 @@ body{
     overflow: hidden;
     box-shadow: 0px 0px 5px;
 }  
-.head:hover {
+/* .head:hover {
   transform: translateY(-5px) translateX(-5px);
   box-shadow: 10px 10px 30px rgba(50, 50, 50, 0.3);
-}
+} */
 .text{
     text-align: center;
 }
@@ -54,29 +54,29 @@ body{
 }
 ul li{
     list-style-type:none;
-    margin-right:100px;
+    /* margin-right:100px; */
     border: solid 1px #f24; 
     background-color:white;
     padding:5px;
     border-radius: 5px;
     margin:5px;
-    width:230px ;
+    width:500px; 
     /* display: table; */
     /* margin: 0 auto;  */
 }
-.circle{
+/* .circle{
     width:100px; height:100px;
     border-radius: 100%;
     position: absolute;
-}
-.circle1{
+} */
+/* .circle1{
     width:50px; height:50px;
-    right:100px;
+    right:100px; */
     /* background-color:#FF2244; */
-    border: solid 3px #f24; 
+    /* border: solid 3px #f24; 
     right:-25px;
     top:-25px;
-}
+} */
 .JustDoIt{
     position: absolute;
     font-size:300px;
@@ -86,27 +86,39 @@ ul li{
 }
 #button{
     border-radius: 5px;
-    background-color:#0066FF;
+    background-color:#FF5151;
     color:#fff;
     float:right; /*可以給 button 增加樣式 float:right;靠右*/
 }
 #button:hover{
-  color:#003C9D;
+  color:#FF5151;
   background-color:#fff;
-  border:1px #003C9D solid;
+  border:1px #FF5151 solid;
 }
 input{
     border-radius: 5px;
+}
+#txt{
+    width: 450px;
+}
+#send{
+    background-color:#4A4AFF;
+    color:#fff;
+}
+#send:hover{
+  color:#4A4AFF;
+  background-color:#fff;
+  border:1px #4A4AFF solid;
 }
 </style>
 <body>
     <div class="JustDoIt">Just Do It</div>
     <div class="ToDoList">To Do List</div>
     <div class="head">
-    <div class="circle circle1"></div>
+    <!-- <div class="circle circle1"></div> -->
     <div class="text">
     <input id="txt" type="text"  placeholder="請輸入內容">
-    <input type="button" id="send" value="送出">
+    <input type="button" id="send" value="新增">
     </div>
     <ul id="list" class="ul">
 
@@ -151,7 +163,7 @@ todos.on('value',function(snapshot){
     for(var item in data){
         //str+='<li>'+data[item].content+'</li>'
         //str+='<li data-key="'+item+'">'+data[item].content+'</li>'
-        str+='<li >'+data[item].content+'<input type="button" id="button" data-key="'+item+'" name="" value="刪除"></li>'
+        str+='<li ><input type="checkbox">'+data[item].content+'<input type="button" id="button" data-key="'+item+'" value="刪除"></li>'
     }
     list.innerHTML = str;
 })
@@ -165,5 +177,5 @@ list.addEventListener('click',function(e){
 })
 
 
-</script>>
+</script>
 </html>
