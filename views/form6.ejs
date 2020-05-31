@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery文件。務必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+ <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<div class="panel panel-info">
+	<div class="panel-heading"><h3 class="panel-title">Holiday Fixed Application</h3></div>
+	<div class="panel-body">
+		<!-- 表頭 -->
+		<div class="form-row">
+			
+			<div class="col-md-6 form-group">
+				<label>文字</label>
+				<div class="">
+					<input name="FormNo" type="text" class="form-control" >
+				</div>
+			</div>
+			<div class="col-md-6 form-group">
+				<label>文字</label>
+				<div class="">
+					<input name="ApplicantDateTime" type="text" class="form-control" readonly>
+				</div>
+			</div>
+			
+		</div>
+		<!-- /表頭 -->
+		<!-- 表身 -->
+		<div class="form-row">
+			<div class="col-md-12 bpm-col-ribbon">
+				<div class="label label-ribbon bpm-label-ribbon  label-primary left" ><strong>填單人資訊ISSUER</strong></div>
+			</div>
+			<div class="col-md-12 form-group">
+				<label>文字</label>
+				<div class="">
+					<input name="CreatorName" type="text" class="form-control" value="" readonly>
+					<button type="button" class="btn btn-primary" name="btnInfomation">Infomation</button>
+				</div>
+			</div>
+			
+			<div class="col-md-12 bpm-col-ribbon">
+				<div class="label label-ribbon bpm-label-ribbon  label-primary left"><strong>申請人APPLICANT</strong></div>
+			</div>
+			
+			
+			<div class="col-md-6 form-group">
+				<label>*文字</label>
+				<div class="">
+					<input name="ApplicantDeptName" type="text" class="form-control" >
+				</div>
+			</div>
+			<div class="col-md-6 form-group">
+				<label>*文字</label>
+				<div class="">
+					<input name="" type="text" class="form-control" >
+				</div>
+			</div>
+		</div>
+			
+			<div class="col-md-12 form-group">
+				<label>*文字</label>
+				<div class="">
+					<input name="ApplicantName" type="text" class="form-control" value="">
+					<button type="button" class="btn btn-primary " name="btnApplicant">Information</button>
+					<button type="button" class="btn btn-warning" name="btnSearch">Search</button>
+				</div>
+			</div>
+			
+			<div class="col-md-12 bpm-col-ribbon">
+				<div class="label label-ribbon bpm-label-ribbon  label-primary left"><strong>申請資訊APPLICATION INFO.</strong></div>
+			</div>
+			
+			<div class="col-md-6 form-group">
+				<label>*文字</label>
+				<div class="">
+					<input name="ApplicantItem" type="text" class="form-control" >
+				</div>
+			</div>
+			<div class="col-md-6 form-group">
+				<label>*文字</label>
+				<div class="">
+					<input name="BirthdayGiftMonth" type="text" class="form-control" >
+				</div>
+			</div>
+			
+			<div class="col-md-6 form-group" id="RedEnvelopeAmount" >
+				<label>文字</label>
+				<div class="">
+					<input name="RedEnvelopeAmount" type="text" class="form-control" >
+				</div>
+			</div>
+			<div class="col-md-6 form-group" id="LessThanThreeMonthsAmount" >
+				<label>文字</label>
+				<div class="">
+					<input name="LessThanThreeMonthsAmount" type="text" class="form-control"  >
+				</div>
+			</div>
+	
+		<!-- /表身 -->
+		<!-- 明細 -->
+		<div class="form-row">
+			<div class="col-md-12 bpm-col-ribbon">
+				
+			</div>
+			<div class="col-md-12 form-group table-responsive">
+				
+				<button id="delDetail" type="button" class="btn btn-danger btn-xs" name="btndelDetail">Delete</button>
+				<table id="detail" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th style="width:10px;"><input id="itemBoxAll" type="checkbox" name='btnitemBoxAll' class=""></th>
+							<th style="width:50px;">文字</th>
+							<th style="width:120px;text-align:center">文字</th>
+							<th style="width:120px;text-align:center">文字</th>
+							<th style="text-align:center">文字</th>
+							<th style="text-align:center">文字</th>
+							<th style="text-align:center">文字</th>
+							<th style="text-align:center">文字</th>
+							<th style="text-align:center">文字</th>
+							<th style="text-align:center">文字</th>
+						</tr>
+						<tr name="DetailItem">
+							<td><input name="itemBox" type="checkbox" class=""></td>
+							<td><input type="text" name="num" class="form-control" value=""></td>
+							<td><input type="text" name="D_ApplicantItem" class="form-control" value="">
+									</td>
+							<td><input type="text" name="D_BirthDateGiftMonth" class="form-control " value="">
+								</td>
+							
+							<td><input type="text" name="EmployeeDept" class="form-control" value=""  ></td>
+							<td><input type="text" name="EmployeeID" class="form-control" value=""  ></td>
+							<td><input type="text" name="EmployeeName" class="form-control" value=""  ></td>
+							<td><input type="text" name="EmployeeBirthMonth" class="form-control" value=""  ></td>
+							<td><input type="text" name="EmployeeOnBoradDate" class="form-control" value=""  ></td>
+							<td><input type="text" name="Amount" class="form-control" value=""  ></td>
+							
+						</tr>
+					</tbody>
+				</table>
+				
+				<div class="col-md-2 bpm-col-ribbon  pull-right">
+				
+					<div class="row "><label>文字</label><input type="text" name="TotalAmount" class="form-control" value="" readonly></div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- /明細 -->
+	</div>
+</div>
+</body>
+</html>
