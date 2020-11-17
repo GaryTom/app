@@ -139,6 +139,7 @@ todos.on('value',function(snapshot){
         str+='<li ><input type="checkbox">'+data[item].content+'<input type="button" id="button" data-key="'+item+'" value="刪除"></li>'
     }
     list.innerHTML = str;
+    txt.value='';
 })
 // 刪除邏輯
 list.addEventListener('click',function(e){
