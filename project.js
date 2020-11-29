@@ -16,6 +16,9 @@ app.get('/todolist',function(req,res){
     res.render('firebase');
 })
 
+app.get('/vue',function(req,res){
+    res.render('Vue');
+})
 
 //監聽
 var port = process.env.PORT || 3000;

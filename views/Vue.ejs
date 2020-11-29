@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery文件。務必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+ <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    Id:
+                    <input type="text" class="form-control" v-model="id" >
+                </label>
+                <label>
+                    Name:
+                    <input type="text" class="form-control" v-model="name">
+                </label>
+                <input type="button" value="添加" class="btn btn-primary" @click="add">
+                <label>
+                    搜尋名稱關鍵字:
+                    <input type="text" class="form-control" v-model="keywords">
+                </label>
+            </div>
+        </div>
+        
+        <table class="table table-bordered table-hover table-struiped" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in search(keywords)" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td v-text="item.name"></td>
+                    <td>{{item.ctime | dateFormat}}</td>
+                    <td>
+                        <a href="" @click.prevent="del(item.id)">刪除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script>
+
+    Vue.filter('dateFormat', function(dateStr){
+        var dt =new Date(dateStr);
+        var y =dt.getFullYear();
+        var m =dt.getMonth()+1;
+        var d =dt.getDate();
+        var hh =dt.getHours();
+        var mm =dt.getMinutes();
+        var ss =dt.getSeconds();
+        return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+    })
+
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            id:'',
+            name:'',
+            keywords:'',
+            list:[
+                {id:1,name:'賓士',ctime:new Date()},
+                {id:2,name:'福特',ctime:new Date()}
+            ]
+        },
+        methods:{
+            add(){
+                var car ={id:this.id,name:this.name,ctime:new Date()}
+                this.list.push(car);
+                this.id=this.name='';
+            },
+            del(id){
+                var index=this.list.findIndex(item=>{
+                    if(item.id==id){
+                       return true;
+                    }
+                })
+                this.list.splice(index,1);
+            },
+            search(keywords){
+                var newlist=this.list.filter(item=>{
+                    if(item.name.includes(keywords)){
+                        return item;
+                    }
+                })
+                return newlist ;
+            },
+        }
+    });
+</script>
+</body>
+</html>
